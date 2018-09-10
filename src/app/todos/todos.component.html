@@ -1,0 +1,31 @@
+<div>
+  <div class="ui header medium centered">
+    Completed tasks:
+    {{todosDone.length }}
+  </div>
+  <div class="ui header medium centered">
+    Pending tasks:
+    {{todosPending.length}}
+  </div>
+  <div *ngFor="let todo of todos">
+    <div class="ui centered card" >
+      <div class="content">
+        <div class='extra content'>
+          <a class='right floated'>
+            <i class='edit icon'></i>
+          </a>
+          <a class='right floated' (click)="delete(todo)">
+            <i class='trash icon'></i>
+          </a>
+        </div>
+        <div class="header">{{todo.name}}</div>
+      </div>
+      <div class='ui bottom attached green basic button' *ngIf="todo.done">
+        <i class='check icon green'></i> Completed
+      </div>
+      <div class='ui bottom attached red basic button' *ngIf="!todo.done">
+        Pending ...
+      </div>
+    </div>
+  </div>
+</div>
